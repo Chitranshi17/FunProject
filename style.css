@@ -1,0 +1,189 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  margin: 0;
+}
+
+.container {
+  position: relative;
+  width: 30%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.midSwitch {
+  width: 70px;
+  height: 60px;
+  border-radius: 50%;
+  /* background-color: rgb(24, 229, 61); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.midSwitch:hover{
+  width: 100px;
+  height: 100px;
+  background-color: wheat;
+  color: black;
+  font-weight: bold;
+}
+.switch {
+  /* position: absolute; */
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, 50%);
+  width: 60px;
+  height: 60px;
+  background-color: #ff5722;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.switch:hover {
+  width: 200px;
+  height: 200px;
+  background-color: #e64a19;
+  transform: scale(1.1);
+}
+.midSwitch:hover switch:hover{
+  width: 300px;
+}
+.button {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-color: #ff9800;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s, opacity 0.3s,
+    box-shadow 0.3s;
+  opacity: 0;
+  color: white;
+}
+
+#btn1 {
+  top: 25.3%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+}
+#btn2 {
+  top: 50%;
+  left: 69.7%;
+  transform: translate(-50%, -50%) scale(0.5);
+}
+#btn3 {
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+}
+#btn4 {
+  top: 50%;
+  left: 30.5%;
+  transform: translate(-50%, -50%) scale(0.5);
+}
+
+.switch:hover ~ .button {
+  opacity: 1;
+  transform: scale(1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  animation: moveButtons 0.5s ease-in-out forwards;
+}
+
+.button:hover {
+  background-color: #f57c00;
+  transform: scale(1.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.button::after {
+  content: attr(id);
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  border-radius: 3px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.button:hover::after {
+  opacity: 1;
+}
+
+.button:active {
+  background-color: #d84315;
+}
+
+@keyframes moveButtons {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.btn-two {
+  color: #fff;
+  transition: all 0.5s;
+  position: relative;
+}
+
+.btn-two span {
+  z-index: 2;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.btn-two::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.5s;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-two::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.5s;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-two:hover::before {
+  transform: rotate(-45deg);
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.btn-two:hover::after {
+  transform: rotate(45deg);
+  background-color: rgba(255, 255, 255, 0);
+}
